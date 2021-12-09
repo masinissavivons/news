@@ -16,7 +16,6 @@ function General(props) {
         `https://newsapi.org/v2/top-headlines?country=fr&category=general&apiKey=${NEWS_API_KEY}`
       );
       const dataGeneral = await rowDataGeneral.json();
-      console.log("dataGeneral: ", dataGeneral);
       setGeneralSourcesList(dataGeneral.articles);
     };
     findSources();
@@ -90,8 +89,5 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
-  return { usernameLogin: state.username, userRegister: state.username };
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(General);
+export default connect(null, mapDispatchToProps)(General);

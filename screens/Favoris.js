@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Image } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { View, Text, ScrollView, StyleSheet, Linking } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
@@ -16,7 +16,7 @@ function Favoris(props) {
   useEffect(() => {
     async function loadFavorites() {
       let rowArticlesFromDb = await fetch(
-        `http://192.168.1.33:3000/getArticlesFromFavorites/${token}`
+        `http://localhost:3000/getArticlesFromFavorites/${token}`
       );
       let articlesFromDb = await rowArticlesFromDb.json();
       // console.log("articles: ", articlesFromDb.articles[0].source);

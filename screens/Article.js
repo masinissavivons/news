@@ -1,36 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { View, StyleSheet, Image, Linking, SafeAreaView } from "react-native";
 import { Text, Button } from "react-native-elements";
-import { FontAwesome } from "@expo/vector-icons";
 
 function Article(props) {
-  //not useful for now, I kept it just in case
-  // const [articleToFavorite, setArticleToFavorite] = useState("");
-
-  // useEffect(() => {
-  //   const favorite = async () => {
-  //     setArticleToFavorite(props.article);
-  //   };
-  //   favorite();
-  // }, []);
-
-  // let articleToFavorite = props.article;
-  // console.log("article: ", props.article);
-
-  // save article in favorites
-  // async function saveArticle() {
-  //   let rowData = await fetch("http://192.168.1.33:3000/articleSavedToFavorites", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: `titleFromFront=${props.article.title}&contentFromFront=${props.article.content}&sourceFromFront=${props.article.source.name}&imageFromFront=${props.article.urlToImage}&token=${props.token}`,
-  //   });
-  //   let data = await rowData.json();
-  //   if (data.result == true) {
-  //     props.addToFavorite(props.article);
-  //   }
-  // }
-
   return (
     <SafeAreaView style={styles.mainView}>
       <View style={styles.titleView}>
@@ -49,24 +22,6 @@ function Article(props) {
       </View>
 
       <View style={styles.buttonView}>
-        {/* <Button
-          title="read later"
-          titleStyle={{
-            textAlign: "center",
-            marginLeft: 30,
-          }}
-          type="outline"
-          icon={<FontAwesome name="bookmark" size={24} color="#fdcb6e" />}
-          buttonStyle={{
-            width: 200,
-            borderRadius: 10,
-            marginBottom: 30,
-          }}
-          onPress={
-            () => saveArticle()
-            // props.addToFavorite(articleToFavorite)
-          }
-        ></Button> */}
         <Button
           title="go to website"
           type="outline"
@@ -120,19 +75,8 @@ const styles = StyleSheet.create({
   },
 });
 
-function mapDispatchToProps(dispatch) {
-  return {
-    addToFavorite: function (articleToFavorite) {
-      dispatch({
-        type: "addToFavorite",
-        articleAddedToFavorite: articleToFavorite,
-      });
-    },
-  };
-}
-
 function mapStateToProps(state) {
-  return { article: state.selectedArticle, token: state.token };
+  return { article: state.selectedArticle };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, null)(Article);

@@ -10,7 +10,15 @@ import token from "./reducers/token";
 import username from "./reducers/username";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
-const store = createStore(combineReducers({ selectedSource, selectedArticle, favorites, token, username }));
+const store = createStore(
+  combineReducers({
+    selectedSource,
+    selectedArticle,
+    favorites,
+    token,
+    username,
+  })
+);
 
 import Register from "./screens/Register";
 import Login from "./screens/Login";
@@ -27,35 +35,34 @@ import { Icon } from "react-native-elements";
 import { FontAwesome } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-
 
 function bottomNav() {
   return (
     <Tab.Navigator
-      screenOptions={
-        ({ route }) => ({
-        tabBarIcon: ({color}) => {
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ color }) => {
           let icon;
           if (route.name == "General") {
-            icon = <FontAwesome name="newspaper-o" size={22} color={color} />
+            icon = <FontAwesome name="newspaper-o" size={22} color={color} />;
           }
           if (route.name == "Science") {
-            icon = <Icon name="science" size={22} color = {color} />
+            icon = <Icon name="science" size={22} color={color} />;
           }
           if (route.name == "Sports") {
-            icon = <FontAwesome name="soccer-ball-o" size={22} color={color} />
+            icon = <FontAwesome name="soccer-ball-o" size={22} color={color} />;
           }
           if (route.name == "Business") {
-            icon = icon=<FontAwesome5 name="wallet" size={22} color = {color}/>
+            icon = icon = (
+              <FontAwesome5 name="wallet" size={22} color={color} />
+            );
           }
           if (route.name == "Technology") {
-            icon = <Icon name="computer" size={22} color = {color} />
+            icon = <Icon name="computer" size={22} color={color} />;
           }
           if (route.name == "Health") {
-            icon = <FontAwesome5 name="hospital" size={22} color={color} />
+            icon = <FontAwesome5 name="hospital" size={22} color={color} />;
           }
           return icon;
         },
@@ -76,7 +83,7 @@ function bottomNav() {
         inactiveTintColor: "#afb7ba",
       }}
     >
-      <Tab.Screen name="General" component={General}/>
+      <Tab.Screen name="General" component={General} />
       <Tab.Screen name="Science" component={Science} />
       <Tab.Screen name="Sports" component={Sports} />
       <Tab.Screen name="Business" component={Business} />
@@ -91,11 +98,11 @@ function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="AppCore" component={bottomNav} />
-        <Stack.Screen name="Article" component={Article} />
+          <Stack.Screen name="Register" component={Register} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="AppCore" component={bottomNav} />
+          <Stack.Screen name="Article" component={Article} />
 
-          {/* <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Login" component={Login} /> */}
           {/* <Stack.Screen name="NewsBySource" component={BySource} /> */}
         </Stack.Navigator>
       </NavigationContainer>

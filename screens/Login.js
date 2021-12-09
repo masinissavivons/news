@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToken: function (token) {
-      dispatch({ type: "saveToken", token: token });
-    },
+    // addToken: function (token) {
+    //   dispatch({ type: "saveToken", token: token });
+    // },
     loginUsername: function (usernameLogin) {
       dispatch({type: "saveUsername", saveUsername: usernameLogin})
     }

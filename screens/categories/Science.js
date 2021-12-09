@@ -89,8 +89,5 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state) {
-  return { usernameLogin: state.username, userRegister: state.username };
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(Science);
+export default connect(null, mapDispatchToProps)(Science);

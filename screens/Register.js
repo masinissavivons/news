@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { StyleSheet, View, Text } from "react-native";
 import { Button, Input } from "react-native-elements";
-import PROXY from "../package.json";
 
 function Register(props) {
   const [usernameRegister, setUsernameRegister] = useState("");
@@ -94,9 +93,9 @@ const styles = StyleSheet.create({
 
 function mapDispatchToProps(dispatch) {
   return {
-    addToken: function (token) {
-      dispatch({ type: "saveToken", token: token });
-    },
+    // addToken: function (token) {
+    //   dispatch({ type: "saveToken", token: token });
+    // },
     registerUsername: function (usernameRegister) {
       dispatch({
         type: "saveUsername",
