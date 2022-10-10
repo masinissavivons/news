@@ -5,23 +5,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import selectedSource from "./reducers/selectedSource";
 import selectedArticle from "./reducers/selectedArticle";
-import favorites from "./reducers/favorites";
-import token from "./reducers/token";
-import username from "./reducers/username";
 import { Provider } from "react-redux";
 import { createStore, combineReducers } from "redux";
 const store = createStore(
   combineReducers({
     selectedSource,
     selectedArticle,
-    favorites,
-    token,
-    username,
   })
 );
 
-import Register from "./screens/Register";
-import Login from "./screens/Login";
 import General from "./screens/categories/General";
 import Science from "./screens/categories/Science";
 import Sports from "./screens/categories/Sports";
@@ -98,12 +90,8 @@ function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Login" component={Login} />
           <Stack.Screen name="AppCore" component={bottomNav} />
           <Stack.Screen name="Article" component={Article} />
-
-          {/* <Stack.Screen name="NewsBySource" component={BySource} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
